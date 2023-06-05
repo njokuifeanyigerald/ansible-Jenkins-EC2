@@ -31,10 +31,12 @@ pipeline {
                 }      
             }
         }
-        // stage('Docker Deploy') {
-        //     steps{
-        //         ansiblePlaybook credentialsId: 'ansible-host', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.txt', playbook: 'deploy.yml'
-        //     }
-        // }          
+        stage('Docker Deploy') {
+            steps{
+                ansiblePlaybook credentialsId: 'ansible-host', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.txt', playbook: 'deploy.yml'
+            }
+        }   
+
+            
     }
 }
