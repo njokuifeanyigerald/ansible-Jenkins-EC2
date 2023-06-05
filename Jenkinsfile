@@ -6,7 +6,7 @@ pipeline {
     stages{
         stage('GIT checkout') {
             steps {
-                git credentialsId: 'github_cred', url: ''
+                git credentialsId: 'github_cred', url: 'https://github.com/njokuifeanyigerald/ansible-Jenkins-EC2.git'
            }
        }
           stage('Build Package') {
@@ -31,10 +31,10 @@ pipeline {
                 }      
             }
         }
-        stage('Docker Deploy') {
-            steps{
-                ansiblePlaybook credentialsId: 'ansible-host', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.txt', playbook: 'deploy.yml'
-            }
-        }          
+        // stage('Docker Deploy') {
+        //     steps{
+        //         ansiblePlaybook credentialsId: 'ansible-host', disableHostKeyChecking: true, installation: 'ansible', inventory: 'inventory.txt', playbook: 'deploy.yml'
+        //     }
+        // }          
     }
 }
