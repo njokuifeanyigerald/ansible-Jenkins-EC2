@@ -27,7 +27,7 @@ pipeline {
                   sh 'docker login -u bopgeek -p ${dockerhubcred}'
                   sh 'docker push bopgeek/${JOB_NAME}:v1.${BUILD_NUMBER}'
                   sh 'docker push bopgeek/${JOB_NAME}:latest'
-                  sh 'docker rmi ${JOB_NAME}:v1.${BUILD_NUMBER} bopgeek/${JOB_NAME}:v1.${BUILD_NUMBER} bopgeek/${JOB_NAME}:latest'
+                //   sh 'docker rmi ${JOB_NAME}:v1.${BUILD_NUMBER} bopgeek/${JOB_NAME}:v1.${BUILD_NUMBER} bopgeek/${JOB_NAME}:latest'
                 }      
             }
         }
