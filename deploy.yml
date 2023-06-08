@@ -1,5 +1,5 @@
 - name: deploying conatiner
-  hosts: anshost
+  hosts: ans-host
   become: true
   tasks:
     - name: stop tomcat docker
