@@ -23,7 +23,7 @@ pipeline {
         }
         stage('push conatiner') {
             steps{
-                withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubcred')]) {
+                withCredentials([string(credentialsId: 'dockerhub_cred', variable: 'dockerhubcred')]) {
                   sh 'docker login -u bopgeek -p ${dockerhubcred}'
                   sh 'docker push bopgeek/${JOB_NAME}:v1.${BUILD_NUMBER}'
                   sh 'docker push bopgeek/${JOB_NAME}:latest'
