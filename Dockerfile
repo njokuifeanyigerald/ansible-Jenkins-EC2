@@ -1,8 +1,12 @@
-# Pull base image 
-FROM tomcat:8-jre8 
+FROM maven as build
+WORKDIR /app
+COPY . . 
+RUN mvn install
 
-# Maintainer 
-MAINTAINER "njokuifeanyigerald@gmail.com"
+FROM openjdk:11.0
+WORKDIR /app
+COPY --from=build /app/target/Uber.jar /app/
+EXPOSE 8080 
+CMD ["java","-jar","Uber.jar"]
 
-# Copy artifacet from the Jenkins target folder into the directory of the tomcat docker conatiner.
-COPY ./target/*.war /usr/local/tomcat/webapps
+

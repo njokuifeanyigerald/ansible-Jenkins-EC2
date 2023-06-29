@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ansiblejava-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ansiblejava
+  template:
+    metadata:
+      labels:
+        app: ansiblejava
+    spec:
+      containers:
+      - name: ansiblejava
+        image: bopgeek/ansiblejavaec2
+        ports:
+        - containerPort: 8080
+
