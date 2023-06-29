@@ -21,7 +21,7 @@ pipeline {
                 sh 'docker tag ${JOB_NAME}:v1.${BUILD_NUMBER} bopgeek/${JOB_NAME}:latest '
             }
         }
-        stage('push conatiner') {
+        stage('push container') {
             steps{
                 withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhubcred')]) {
                   sh 'docker login -u bopgeek -p ${dockerhubcred}'
